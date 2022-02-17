@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private Camera playerCam;
     [SerializeField]
-    private Camera lockCam;
+    private Camera lockpickCam;
 
     public bool inGame;
 
@@ -29,8 +29,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject FailText;
 
     public int lockpickAttempts;
-
-
 
     // Delegates
     public delegate void ToggleGame();
@@ -50,16 +48,33 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    
     // Start is called before the first frame update
     void Start()
     {
-        
+        inGame = false;
+        playerCam.enabled = true;
+        lockpickCam.enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void ToggleCameras()
+    {
+        // current test, check if the minigame camera is working
+        inGame = !inGame;
+        if (!inGame)
+        {
+            playerCam.enabled = true;
+            lockpickCam.enabled = false;
+        } else if (inGame)
+        {
+            playerCam.enabled = false;
+            lockpickCam.enabled = true;
+        }
+            
     }
 }

@@ -38,14 +38,22 @@ public class PlayerBehaviour : MonoBehaviour
     /// <param name="value"></param>
     public void OnMove(InputValue value)
     {
-        Debug.Log("Moving");
-        Vector2 moveValue = value.Get<Vector2>();
-        playerVelocity = new Vector3(moveValue.x, 0, moveValue.y);
-
+        if (!GameManager.Instance.inGame)
+        {
+            Debug.Log("Moving");
+            Vector2 moveValue = value.Get<Vector2>();
+            playerVelocity = new Vector3(moveValue.x, 0, moveValue.y);
+        }
     }
 
+    /// <summary>
+    /// Pressing the interact button
+    /// </summary>
+    /// <param name="value"></param>
     public void OnInteract(InputValue value)
     {
         Debug.Log("Interacting");
+        GameManager.Instance.ToggleCameras(); // will have to change depending on what difficulty
+        playerVelocity = Vector3.zero; // zero out the velocity of the player
     }
 }
