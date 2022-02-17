@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.Events;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -19,6 +22,20 @@ public class GameManager : MonoBehaviour
 
     public bool inGame;
 
+    [Header("Game Elements")]
+    [SerializeField] private GameObject lockpickingCanvas;
+    [SerializeField] private GameObject promptText;
+    [SerializeField] private GameObject winText;
+    [SerializeField] private GameObject FailText;
+
+    public int lockpickAttempts;
+
+
+
+    // Delegates
+    public delegate void ToggleGame();
+    public event ToggleGame Toggle;
+
     private void Awake()
     {
         if (instance != null)
@@ -33,6 +50,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    
     // Start is called before the first frame update
     void Start()
     {
