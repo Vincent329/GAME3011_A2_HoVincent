@@ -820,7 +820,7 @@
                     "name": "Left or Right",
                     "id": "1c4fc837-06d8-413c-992b-15f8c74750fd",
                     "path": "1DAxis",
-                    "interactions": "",
+                    "interactions": "Press",
                     "processors": "",
                     "groups": "",
                     "action": "TurnWheel",
@@ -839,31 +839,9 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "Negative",
+                    "name": "Positive",
                     "id": "5bc30a08-cf85-41ae-988f-249bd32039af",
                     "path": "<Keyboard>/leftArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "TurnWheel",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "Positive",
-                    "id": "d8ad96ad-1160-4d1a-88a3-ee857f49c2c5",
-                    "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "TurnWheel",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "Positive",
-                    "id": "c0073f50-a832-4ea2-9518-e7cfcfa4f27a",
-                    "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",

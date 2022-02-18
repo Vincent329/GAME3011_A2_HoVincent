@@ -5,9 +5,10 @@ using UnityEngine;
 public class KeyMechanic : MonoBehaviour
 {
     // Start is called before the first frame update
+    public bool isActive;
     void Start()
     {
-        
+        isActive = false;
     }
 
     // Update is called once per frame
