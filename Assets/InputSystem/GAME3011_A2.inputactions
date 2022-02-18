@@ -841,7 +841,7 @@
                 {
                     "name": "Positive",
                     "id": "5bc30a08-cf85-41ae-988f-249bd32039af",
-                    "path": "<Keyboard>/leftArrow",
+                    "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",

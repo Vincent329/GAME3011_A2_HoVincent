@@ -616,6 +616,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LockPickEasy
       objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: fd4acfab6543a2c4f8ef07d396e2eaed, type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd4acfab6543a2c4f8ef07d396e2eaed, type: 3}
 --- !u!1 &705507993
@@ -1082,7 +1086,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!136 &1761043352
 CapsuleCollider:
@@ -1156,7 +1160,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1761043350}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -17.899994, y: -92.9, z: -16.5}
+  m_LocalPosition: {x: -17.899994, y: -92.9, z: -13.9}
   m_LocalScale: {x: 5.415879, y: 2.8949497, z: 5.415879}
   m_ConstrainProportionsScale: 0
   m_Children: []
