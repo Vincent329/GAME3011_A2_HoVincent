@@ -806,13 +806,22 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "ActivateLock",
+                    "name": "ControlLock",
                     "type": "Button",
                     "id": "87daf020-00e1-4dd4-92e2-278fb69271fb",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "MousePosition",
+                    "type": "Value",
+                    "id": "ff98cc50-174d-47db-a971-c6dcef4f3891",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -855,8 +864,19 @@
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "ActivateLock",
+                    "groups": "Keyboard&Mouse",
+                    "action": "ControlLock",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5e6b387d-d9aa-413a-9b7c-f05d65282c46",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "MousePosition",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

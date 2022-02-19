@@ -17,6 +17,8 @@ public class PlayerBehaviour : MonoBehaviour
     private bool inRange;
     public bool activeGame;
 
+
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();

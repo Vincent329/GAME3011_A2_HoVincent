@@ -23,16 +23,21 @@ public class GameManager : MonoBehaviour
     public bool inGame;
 
     [Header("Game Elements")]
+    public DifficultyEnum difficultySet;
     [SerializeField] private GameObject lockpickingCanvas;
     [SerializeField] private GameObject promptText;
     [SerializeField] private GameObject winText;
     [SerializeField] private GameObject FailText;
 
+
     public int lockpickAttempts;
 
     // Delegates
-    public delegate void ToggleGame();
-    public event ToggleGame Toggle;
+    public delegate void DifficultySet(int difficulty);
+    public event DifficultySet Toggle;
+
+    public delegate void ResetGame();
+    public event ResetGame Reset;
 
     private void Awake()
     {
@@ -54,6 +59,7 @@ public class GameManager : MonoBehaviour
         inGame = false;
         playerCam.enabled = true;
         lockpickCam.enabled = false;
+        lockpickingCanvas.SetActive(false);
     }
 
     // Update is called once per frame
@@ -61,7 +67,6 @@ public class GameManager : MonoBehaviour
     {
         
     }
-
     public void ToggleCameras()
     {
         // current test, check if the minigame camera is working
@@ -69,12 +74,14 @@ public class GameManager : MonoBehaviour
         if (!inGame)
         {
             playerCam.enabled = true;
-            lockpickCam.enabled = false;
+            lockpickCam.enabled = false; 
+            lockpickingCanvas.SetActive(false);
         } else if (inGame)
         {
             playerCam.enabled = false;
             lockpickCam.enabled = true;
+            lockpickingCanvas.SetActive(true);
         }
-            
     }
+
 }
