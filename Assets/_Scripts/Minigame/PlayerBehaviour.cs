@@ -83,9 +83,11 @@ public class PlayerBehaviour : MonoBehaviour
     /// <param name="value"></param>
     private void OnSwitchToMinigame(InputAction.CallbackContext obj)
     {
-        
-        GameManager.Instance.ToggleCameras(); // will have to change depending on what difficulty
-        playerVelocity = Vector3.zero; // zero out the velocity of the player
-        InputManager.ToggleActionMap(gameInputActions.Minigame);
+        if (!GameManager.Instance.inGame)
+        {
+            GameManager.Instance.ToggleCameras(); // will have to change depending on what difficulty
+            playerVelocity = Vector3.zero; // zero out the velocity of the player
+            InputManager.ToggleActionMap(gameInputActions.Minigame);
+        }
     }
 }

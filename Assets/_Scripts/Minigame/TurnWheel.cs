@@ -100,6 +100,7 @@ public class TurnWheel : MonoBehaviour
     public void OnSwitchToPlayer(InputAction.CallbackContext context)
     {
         Debug.Log("Switch Back To Player");
+        GameManager.Instance.ToggleCameras(); // will have to change depending on what difficulty
         InputManager.ToggleActionMap(gameInputActions.Player);
     }
 

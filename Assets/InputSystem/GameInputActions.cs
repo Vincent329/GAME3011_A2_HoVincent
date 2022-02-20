@@ -923,7 +923,7 @@ public partial class @GameInputActions : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""46f1d97c-a006-481c-b3d3-e9544998fd31"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""path"": ""<Keyboard>/r"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
