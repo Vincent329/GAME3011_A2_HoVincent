@@ -15,6 +15,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     [Header("Minigame Activation Variables")]
     private bool inRange;
+    public bool elementIsActive;
     public bool activeGame;
 
     private GameInputActions gameInputActions;
@@ -27,11 +28,15 @@ public class PlayerBehaviour : MonoBehaviour
 
     private void OnEnable()
     {
-        Debug.Log("Actions goooo");
         gameInputActions.Enable();
-        gameInputActions.Player.Move.performed += OnMove;
-        gameInputActions.Player.Move.canceled += OnMove;
-        gameInputActions.Player.SwitchToMinigame.started += OnSwitchToMinigame;
+        if (elementIsActive)
+        {
+            Debug.Log("Actions goooo");
+
+            gameInputActions.Player.Move.performed += OnMove;
+            gameInputActions.Player.Move.canceled += OnMove;
+            gameInputActions.Player.SwitchToMinigame.started += OnSwitchToMinigame;
+        }
     }
 
     private void OnDisable()
@@ -45,7 +50,10 @@ public class PlayerBehaviour : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-      
+        elementIsActive = true;
+        gameInputActions.Player.Move.performed += OnMove;
+        gameInputActions.Player.Move.canceled += OnMove;
+        gameInputActions.Player.SwitchToMinigame.started += OnSwitchToMinigame;
     }
 
     // Update is called once per frame

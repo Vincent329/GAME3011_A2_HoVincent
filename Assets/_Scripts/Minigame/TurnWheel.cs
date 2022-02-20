@@ -54,7 +54,6 @@ public class TurnWheel : MonoBehaviour
         if (GameManager.Instance.inGame)
         {
             m_fRotationValue = value.Get<float>(); // getting the float value
-            Debug.Log(m_fRotationValue);
             if (m_fRotationValue < 0)
             {
                 m_bIsMovingLeft = true;
@@ -72,6 +71,7 @@ public class TurnWheel : MonoBehaviour
 
     private void RestartState()
     {
+        Debug.Log("SHOULD RESET");
         transform.localEulerAngles = initialState.localEulerAngles;
     }
 
