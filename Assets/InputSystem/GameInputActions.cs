@@ -853,6 +853,15 @@ public partial class @GameInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Deselect"",
+                    ""type"": ""Button"",
+                    ""id"": ""d7c86c44-37ad-4019-9668-5d4cdddcd09e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -917,8 +926,19 @@ public partial class @GameInputActions : IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""SwitchToPlayer"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7b7447b8-7b65-4ecd-81f4-b73ba5a35df5"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Deselect"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1012,6 +1032,7 @@ public partial class @GameInputActions : IInputActionCollection2, IDisposable
         m_Minigame_ControlLock = m_Minigame.FindAction("ControlLock", throwIfNotFound: true);
         m_Minigame_MousePosition = m_Minigame.FindAction("MousePosition", throwIfNotFound: true);
         m_Minigame_SwitchToPlayer = m_Minigame.FindAction("SwitchToPlayer", throwIfNotFound: true);
+        m_Minigame_Deselect = m_Minigame.FindAction("Deselect", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1237,6 +1258,7 @@ public partial class @GameInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Minigame_ControlLock;
     private readonly InputAction m_Minigame_MousePosition;
     private readonly InputAction m_Minigame_SwitchToPlayer;
+    private readonly InputAction m_Minigame_Deselect;
     public struct MinigameActions
     {
         private @GameInputActions m_Wrapper;
@@ -1245,6 +1267,7 @@ public partial class @GameInputActions : IInputActionCollection2, IDisposable
         public InputAction @ControlLock => m_Wrapper.m_Minigame_ControlLock;
         public InputAction @MousePosition => m_Wrapper.m_Minigame_MousePosition;
         public InputAction @SwitchToPlayer => m_Wrapper.m_Minigame_SwitchToPlayer;
+        public InputAction @Deselect => m_Wrapper.m_Minigame_Deselect;
         public InputActionMap Get() { return m_Wrapper.m_Minigame; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1266,6 +1289,9 @@ public partial class @GameInputActions : IInputActionCollection2, IDisposable
                 @SwitchToPlayer.started -= m_Wrapper.m_MinigameActionsCallbackInterface.OnSwitchToPlayer;
                 @SwitchToPlayer.performed -= m_Wrapper.m_MinigameActionsCallbackInterface.OnSwitchToPlayer;
                 @SwitchToPlayer.canceled -= m_Wrapper.m_MinigameActionsCallbackInterface.OnSwitchToPlayer;
+                @Deselect.started -= m_Wrapper.m_MinigameActionsCallbackInterface.OnDeselect;
+                @Deselect.performed -= m_Wrapper.m_MinigameActionsCallbackInterface.OnDeselect;
+                @Deselect.canceled -= m_Wrapper.m_MinigameActionsCallbackInterface.OnDeselect;
             }
             m_Wrapper.m_MinigameActionsCallbackInterface = instance;
             if (instance != null)
@@ -1282,6 +1308,9 @@ public partial class @GameInputActions : IInputActionCollection2, IDisposable
                 @SwitchToPlayer.started += instance.OnSwitchToPlayer;
                 @SwitchToPlayer.performed += instance.OnSwitchToPlayer;
                 @SwitchToPlayer.canceled += instance.OnSwitchToPlayer;
+                @Deselect.started += instance.OnDeselect;
+                @Deselect.performed += instance.OnDeselect;
+                @Deselect.canceled += instance.OnDeselect;
             }
         }
     }
@@ -1357,5 +1386,6 @@ public partial class @GameInputActions : IInputActionCollection2, IDisposable
         void OnControlLock(InputAction.CallbackContext context);
         void OnMousePosition(InputAction.CallbackContext context);
         void OnSwitchToPlayer(InputAction.CallbackContext context);
+        void OnDeselect(InputAction.CallbackContext context);
     }
 }

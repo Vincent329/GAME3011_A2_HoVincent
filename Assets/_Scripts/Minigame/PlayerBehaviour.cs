@@ -18,10 +18,11 @@ public class PlayerBehaviour : MonoBehaviour
     public bool activeGame;
 
     private GameInputActions gameInputActions;
-
+    private PlayerInput playerInput;
     private void Awake()
     {
         gameInputActions = new GameInputActions();
+        playerInput = GetComponent<PlayerInput>();
     }
 
     private void OnEnable()

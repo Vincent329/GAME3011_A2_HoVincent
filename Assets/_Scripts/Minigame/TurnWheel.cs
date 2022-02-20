@@ -12,7 +12,24 @@ public class TurnWheel : MonoBehaviour
 
     [SerializeField] private float m_fSpeedModifier;
     [SerializeField] private bool m_bActiveLock;
+    private Transform initialState;
     float m_fRotationValue;
+
+    public bool initializeStartup = false;
+
+    private void OnEnable()
+    {
+        if (initializeStartup)
+        {
+            Debug.Log("BindZeDelegate2");
+            GameManager.Instance.Reset += RestartState;
+        }
+    }
+
+    private void OnDisable()
+    {
+        GameManager.Instance.Reset -= RestartState;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +37,11 @@ public class TurnWheel : MonoBehaviour
         m_bIsMovingLeft = false;
         m_bIsMovingRight = false;
         m_fRotationValue = 0;
+        initialState = this.transform;
+
+        initializeStartup = true;
+        GameManager.Instance.Reset += RestartState;
+
     }
 
     private void Update()
@@ -48,12 +70,19 @@ public class TurnWheel : MonoBehaviour
         }
     }
 
+    private void RestartState()
+    {
+        transform.localEulerAngles = initialState.localEulerAngles;
+    }
+
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Key"))
         {
             // TO DO: reset functionality
             Debug.Log("Key Touch, Restart");
+            GameManager.Instance.RestartSession();
         }
     }
 }

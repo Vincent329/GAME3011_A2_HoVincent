@@ -13,10 +13,32 @@ public class KeyController : MonoBehaviour
     private Camera miniGameCamera;
     [SerializeField]
     private Vector2 mousePos;
+    [SerializeField]
+    private Transform startingPosition; // may differ from difficulty
+
+    public bool initializeStartup = false;
 
     void Start()
     {
         keyToUse = null;
+
+        initializeStartup = true;
+        GameManager.Instance.Reset += PositionRestart;
+
+    }
+
+    private void OnEnable()
+    {
+        if (initializeStartup)
+        {
+            Debug.Log("BindZeDelegate1");
+            GameManager.Instance.Reset += PositionRestart;
+        }
+    }
+
+    private void OnDisable()
+    {
+        GameManager.Instance.Reset -= PositionRestart;
     }
 
     // Update is called once per frame
@@ -39,7 +61,7 @@ public class KeyController : MonoBehaviour
         {
             Debug.Log("ControlEventTest");
             RaycastHit hit = CastRay();
-
+            
             if (hit.collider != null)
             {
                 if (hit.collider.CompareTag("Key"))
@@ -58,6 +80,23 @@ public class KeyController : MonoBehaviour
         mousePos = value.Get<Vector2>();
     }
 
+    public void OnDeselect(InputValue value)
+    {
+        PositionRestart();
+    }
+
+    /// <summary>
+    /// May bind to the delegate
+    /// </summary>
+    private void PositionRestart()
+    {
+        if (keyToUse != null)
+        {
+            keyToUse.transform.position = startingPosition.position;
+            keyToUse = null;
+        }
+    }
+
     private RaycastHit CastRay()
     {
         // MUST USE THE INPUT SYSTEM FROM THE 
@@ -71,14 +110,5 @@ public class KeyController : MonoBehaviour
         Physics.Raycast(worldMousePosNear, worldMousePosFar - worldMousePosNear, out hit);
         return hit;
         
-    }
-
-    private void ResetState()
-    {
-        if (keyToUse != null)
-        {
-            
-            keyToUse = null;
-        }
     }
 }

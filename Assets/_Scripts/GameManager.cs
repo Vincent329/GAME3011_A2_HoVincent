@@ -44,12 +44,11 @@ public class GameManager : MonoBehaviour
         if (instance != null)
         {
             Destroy(gameObject);
-            return;
         }
         else
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
     }
 
@@ -82,6 +81,11 @@ public class GameManager : MonoBehaviour
             lockpickCam.enabled = true;
             lockpickingCanvas.SetActive(true);
         }
+    }
+
+    public void RestartSession()
+    {
+        Reset();
     }
 
 }
