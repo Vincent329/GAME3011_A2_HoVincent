@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class TurnWheel : MonoBehaviour
 {
-    [SerializeField] private DifficultyEnum difficulty;
+    //[SerializeField] private DifficultyEnum difficulty;
 
     [SerializeField] private bool m_bIsMovingLeft;
     [SerializeField] private bool m_bIsMovingRight;
@@ -26,6 +26,7 @@ public class TurnWheel : MonoBehaviour
     {
         transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z + (m_fRotationValue * m_fSpeedModifier));
     }
+
     public void OnTurnWheel(InputValue value)
     {
         if (GameManager.Instance.inGame)

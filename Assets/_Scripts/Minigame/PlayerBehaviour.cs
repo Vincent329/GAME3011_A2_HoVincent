@@ -17,11 +17,34 @@ public class PlayerBehaviour : MonoBehaviour
     private bool inRange;
     public bool activeGame;
 
+    private GameInputActions gameInputActions;
 
+    private void Awake()
+    {
+        gameInputActions = new GameInputActions();
+    }
+
+    private void OnEnable()
+    {
+        Debug.Log("Actions goooo");
+        gameInputActions.Enable();
+        gameInputActions.Player.Move.performed += OnMove;
+        gameInputActions.Player.Move.canceled += OnMove;
+        gameInputActions.Player.SwitchToMinigame.started += OnSwitchToMinigame;
+    }
+
+    private void OnDisable()
+    {
+        gameInputActions.Disable();
+        gameInputActions.Player.Move.performed -= OnMove;
+        gameInputActions.Player.Move.canceled -= OnMove;
+        gameInputActions.Player.SwitchToMinigame.started -= OnSwitchToMinigame;
+    }
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+      
     }
 
     // Update is called once per frame
@@ -38,12 +61,12 @@ public class PlayerBehaviour : MonoBehaviour
     /// Input for movement
     /// </summary>
     /// <param name="value"></param>
-    public void OnMove(InputValue value)
+    private void OnMove(InputAction.CallbackContext obj)
     {
         if (!GameManager.Instance.inGame)
         {
             Debug.Log("Moving");
-            Vector2 moveValue = value.Get<Vector2>();
+            Vector2 moveValue = obj.ReadValue<Vector2>();
             playerVelocity = new Vector3(moveValue.x, 0, moveValue.y);
         }
     }
@@ -52,7 +75,7 @@ public class PlayerBehaviour : MonoBehaviour
     /// Pressing the interact button
     /// </summary>
     /// <param name="value"></param>
-    public void OnInteract(InputValue value)
+    private void OnSwitchToMinigame(InputAction.CallbackContext obj)
     {
         Debug.Log("Interacting");
         GameManager.Instance.ToggleCameras(); // will have to change depending on what difficulty

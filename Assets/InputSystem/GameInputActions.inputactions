@@ -1,5 +1,5 @@
 {
-    "name": "GAME3011_A2",
+    "name": "GameInputActions",
     "maps": [
         {
             "name": "Player",
@@ -33,13 +33,13 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Interact",
-                    "type": "Button",
+                    "name": "SwitchToMinigame",
+                    "type": "Value",
                     "id": "627ca944-a89f-41c3-b16d-a6e4442a3480",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -270,7 +270,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Interact",
+                    "action": "SwitchToMinigame",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -822,6 +822,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "SwitchToPlayer",
+                    "type": "Button",
+                    "id": "8358a3b3-1049-4c7a-8a7f-b8a58f33a751",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -877,6 +886,17 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "MousePosition",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "46f1d97c-a006-481c-b3d3-e9544998fd31",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SwitchToPlayer",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
