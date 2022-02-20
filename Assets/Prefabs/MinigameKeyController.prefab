@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: 73a48a8790fba4b4f94cbf55a27f74ad, type: 3}
-  m_NotificationBehavior: 1
+  m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -78,3 +78,5 @@ MonoBehaviour:
   keyToUse: {fileID: 0}
   miniGameCamera: {fileID: 0}
   mousePos: {x: 0, y: 0}
+  startingPosition: {fileID: 0}
+  initializeStartup: 0

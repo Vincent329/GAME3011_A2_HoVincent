@@ -832,7 +832,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: 73a48a8790fba4b4f94cbf55a27f74ad, type: 3}
-  m_NotificationBehavior: 1
+  m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -843,7 +843,83 @@ MonoBehaviour:
   m_ControlsChangedEvent:
     m_PersistentCalls:
       m_Calls: []
-  m_ActionEvents: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d4fdf5cb-e677-44cc-87ff-dc503552e648
+    m_ActionName: Player/Move[/DualShock4GamepadHID/leftStick,/XInputControllerWindows/leftStick,/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a8633000-feb7-4bb7-a7f5-b13144811d9d
+    m_ActionName: Player/Look[/DualShock4GamepadHID/rightStick,/XInputControllerWindows/rightStick,/Mouse/delta,/Pen/delta]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2a055e6c-2ca1-46c6-9505-5d8e85f7d424
+    m_ActionName: Player/Fire[/DualShock4GamepadHID/rightTrigger,/XInputControllerWindows/rightTrigger,/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 627ca944-a89f-41c3-b16d-a6e4442a3480
+    m_ActionName: Player/SwitchToMinigame[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 33e838f8-40f2-4daf-bf96-a47bedbd0846
+    m_ActionName: UI/Navigate[/DualShock4GamepadHID/leftStick/up,/XInputControllerWindows/leftStick/up,/DualShock4GamepadHID/rightStick/up,/XInputControllerWindows/rightStick/up,/DualShock4GamepadHID/leftStick/down,/XInputControllerWindows/leftStick/down,/DualShock4GamepadHID/rightStick/down,/XInputControllerWindows/rightStick/down,/DualShock4GamepadHID/leftStick/left,/XInputControllerWindows/leftStick/left,/DualShock4GamepadHID/rightStick/left,/XInputControllerWindows/rightStick/left,/DualShock4GamepadHID/leftStick/right,/XInputControllerWindows/leftStick/right,/DualShock4GamepadHID/rightStick/right,/XInputControllerWindows/rightStick/right,/DualShock4GamepadHID/dpad,/XInputControllerWindows/dpad,/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 53234e17-4050-46b9-92a0-f14aeb9d4314
+    m_ActionName: UI/Submit[/Keyboard/enter,/DualShock4GamepadHID/buttonSouth,/XInputControllerWindows/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a20647d2-8254-4c99-acfa-3792dc2ca00a
+    m_ActionName: UI/Cancel[/Keyboard/escape,/DualShock4GamepadHID/buttonEast,/XInputControllerWindows/buttonEast]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: bfc873c9-5e61-47b7-ad45-918170ef1a30
+    m_ActionName: UI/Point[/Mouse/position,/Pen/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 265e90d9-f8b4-4c9f-b51d-d9e612776fbb
+    m_ActionName: UI/Click[/Mouse/leftButton,/Pen/tip]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ca81763c-68d7-4a2b-9a31-8b15f9e8b5b3
+    m_ActionName: UI/ScrollWheel[/Mouse/scroll]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8e8bfeff-4ce0-4036-9e51-99b97b34bbf2
+    m_ActionName: UI/MiddleClick[/Mouse/middleButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9e0e2067-b2b2-4933-a46c-1406b862ec87
+    m_ActionName: UI/RightClick[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: bc00258c-32f6-4d48-ab08-e9448549d0d4
+    m_ActionName: UI/TrackedDevicePosition
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7418df1e-8f8f-439c-bf06-bf8906114606
+    m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 711474c9-d382-4fb8-b852-86e4aaf841d3
+    m_ActionName: Minigame/TurnWheel[/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 87daf020-00e1-4dd4-92e2-278fb69271fb
+    m_ActionName: Minigame/ControlLock[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ff98cc50-174d-47db-a971-c6dcef4f3891
+    m_ActionName: Minigame/MousePosition[/Mouse/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8358a3b3-1049-4c7a-8a7f-b8a58f33a751
+    m_ActionName: Minigame/SwitchToPlayer[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d7c86c44-37ad-4019-9668-5d4cdddcd09e
+    m_ActionName: Minigame/Deselect[/Mouse/rightButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Minigame
@@ -863,7 +939,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_bIsMovingLeft: 0
   m_bIsMovingRight: 0
-  m_fSpeedModifier: 0.08
+  m_fSpeedModifier: 0.71
   m_bActiveLock: 0
   initializeStartup: 0
 --- !u!4 &940971412 stripped
@@ -1057,6 +1133,50 @@ Transform:
   - {fileID: 543450653092986360}
   m_Father: {fileID: 0}
   m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1289240130
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1289240132}
+  - component: {fileID: 1289240131}
+  m_Layer: 0
+  m_Name: InputManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1289240131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1289240130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e628e2022d704ab47bd879603e4d269e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1289240132
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1289240130}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -46.56612, y: -110.183624, z: 254.52246}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1505628619
 GameObject:
@@ -1373,6 +1493,162 @@ PrefabInstance:
     - target: {fileID: 2960502086620502517, guid: b882d4767c50ecb4ea5bb62deeb6d513, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2960502086620502518, guid: b882d4767c50ecb4ea5bb62deeb6d513, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 2960502086620502518, guid: b882d4767c50ecb4ea5bb62deeb6d513, type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_ActionId
+      value: d4fdf5cb-e677-44cc-87ff-dc503552e648
+      objectReference: {fileID: 0}
+    - target: {fileID: 2960502086620502518, guid: b882d4767c50ecb4ea5bb62deeb6d513, type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_ActionId
+      value: a8633000-feb7-4bb7-a7f5-b13144811d9d
+      objectReference: {fileID: 0}
+    - target: {fileID: 2960502086620502518, guid: b882d4767c50ecb4ea5bb62deeb6d513, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_ActionId
+      value: 2a055e6c-2ca1-46c6-9505-5d8e85f7d424
+      objectReference: {fileID: 0}
+    - target: {fileID: 2960502086620502518, guid: b882d4767c50ecb4ea5bb62deeb6d513, type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_ActionId
+      value: 627ca944-a89f-41c3-b16d-a6e4442a3480
+      objectReference: {fileID: 0}
+    - target: {fileID: 2960502086620502518, guid: b882d4767c50ecb4ea5bb62deeb6d513, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_ActionId
+      value: 33e838f8-40f2-4daf-bf96-a47bedbd0846
+      objectReference: {fileID: 0}
+    - target: {fileID: 2960502086620502518, guid: b882d4767c50ecb4ea5bb62deeb6d513, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_ActionId
+      value: 53234e17-4050-46b9-92a0-f14aeb9d4314
+      objectReference: {fileID: 0}
+    - target: {fileID: 2960502086620502518, guid: b882d4767c50ecb4ea5bb62deeb6d513, type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_ActionId
+      value: a20647d2-8254-4c99-acfa-3792dc2ca00a
+      objectReference: {fileID: 0}
+    - target: {fileID: 2960502086620502518, guid: b882d4767c50ecb4ea5bb62deeb6d513, type: 3}
+      propertyPath: m_ActionEvents.Array.data[7].m_ActionId
+      value: bfc873c9-5e61-47b7-ad45-918170ef1a30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2960502086620502518, guid: b882d4767c50ecb4ea5bb62deeb6d513, type: 3}
+      propertyPath: m_ActionEvents.Array.data[8].m_ActionId
+      value: 265e90d9-f8b4-4c9f-b51d-d9e612776fbb
+      objectReference: {fileID: 0}
+    - target: {fileID: 2960502086620502518, guid: b882d4767c50ecb4ea5bb62deeb6d513, type: 3}
+      propertyPath: m_ActionEvents.Array.data[9].m_ActionId
+      value: ca81763c-68d7-4a2b-9a31-8b15f9e8b5b3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2960502086620502518, guid: b882d4767c50ecb4ea5bb62deeb6d513, type: 3}
+      propertyPath: m_ActionEvents.Array.data[10].m_ActionId
+      value: 8e8bfeff-4ce0-4036-9e51-99b97b34bbf2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2960502086620502518, guid: b882d4767c50ecb4ea5bb62deeb6d513, type: 3}
+      propertyPath: m_ActionEvents.Array.data[11].m_ActionId
+      value: 9e0e2067-b2b2-4933-a46c-1406b862ec87
+      objectReference: {fileID: 0}
+    - target: {fileID: 2960502086620502518, guid: b882d4767c50ecb4ea5bb62deeb6d513, type: 3}
+      propertyPath: m_ActionEvents.Array.data[12].m_ActionId
+      value: bc00258c-32f6-4d48-ab08-e9448549d0d4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2960502086620502518, guid: b882d4767c50ecb4ea5bb62deeb6d513, type: 3}
+      propertyPath: m_ActionEvents.Array.data[13].m_ActionId
+      value: 7418df1e-8f8f-439c-bf06-bf8906114606
+      objectReference: {fileID: 0}
+    - target: {fileID: 2960502086620502518, guid: b882d4767c50ecb4ea5bb62deeb6d513, type: 3}
+      propertyPath: m_ActionEvents.Array.data[14].m_ActionId
+      value: 711474c9-d382-4fb8-b852-86e4aaf841d3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2960502086620502518, guid: b882d4767c50ecb4ea5bb62deeb6d513, type: 3}
+      propertyPath: m_ActionEvents.Array.data[15].m_ActionId
+      value: 87daf020-00e1-4dd4-92e2-278fb69271fb
+      objectReference: {fileID: 0}
+    - target: {fileID: 2960502086620502518, guid: b882d4767c50ecb4ea5bb62deeb6d513, type: 3}
+      propertyPath: m_ActionEvents.Array.data[16].m_ActionId
+      value: ff98cc50-174d-47db-a971-c6dcef4f3891
+      objectReference: {fileID: 0}
+    - target: {fileID: 2960502086620502518, guid: b882d4767c50ecb4ea5bb62deeb6d513, type: 3}
+      propertyPath: m_ActionEvents.Array.data[17].m_ActionId
+      value: 8358a3b3-1049-4c7a-8a7f-b8a58f33a751
+      objectReference: {fileID: 0}
+    - target: {fileID: 2960502086620502518, guid: b882d4767c50ecb4ea5bb62deeb6d513, type: 3}
+      propertyPath: m_ActionEvents.Array.data[18].m_ActionId
+      value: d7c86c44-37ad-4019-9668-5d4cdddcd09e
+      objectReference: {fileID: 0}
+    - target: {fileID: 2960502086620502518, guid: b882d4767c50ecb4ea5bb62deeb6d513, type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_ActionName
+      value: Player/Move[/DualShock4GamepadHID/leftStick,/XInputControllerWindows/leftStick,/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+      objectReference: {fileID: 0}
+    - target: {fileID: 2960502086620502518, guid: b882d4767c50ecb4ea5bb62deeb6d513, type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_ActionName
+      value: Player/Look[/DualShock4GamepadHID/rightStick,/XInputControllerWindows/rightStick,/Mouse/delta,/Pen/delta]
+      objectReference: {fileID: 0}
+    - target: {fileID: 2960502086620502518, guid: b882d4767c50ecb4ea5bb62deeb6d513, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_ActionName
+      value: Player/Fire[/DualShock4GamepadHID/rightTrigger,/XInputControllerWindows/rightTrigger,/Mouse/leftButton]
+      objectReference: {fileID: 0}
+    - target: {fileID: 2960502086620502518, guid: b882d4767c50ecb4ea5bb62deeb6d513, type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_ActionName
+      value: Player/SwitchToMinigame[/Keyboard/e]
+      objectReference: {fileID: 0}
+    - target: {fileID: 2960502086620502518, guid: b882d4767c50ecb4ea5bb62deeb6d513, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_ActionName
+      value: UI/Navigate[/DualShock4GamepadHID/leftStick/up,/XInputControllerWindows/leftStick/up,/DualShock4GamepadHID/rightStick/up,/XInputControllerWindows/rightStick/up,/DualShock4GamepadHID/leftStick/down,/XInputControllerWindows/leftStick/down,/DualShock4GamepadHID/rightStick/down,/XInputControllerWindows/rightStick/down,/DualShock4GamepadHID/leftStick/left,/XInputControllerWindows/leftStick/left,/DualShock4GamepadHID/rightStick/left,/XInputControllerWindows/rightStick/left,/DualShock4GamepadHID/leftStick/right,/XInputControllerWindows/leftStick/right,/DualShock4GamepadHID/rightStick/right,/XInputControllerWindows/rightStick/right,/DualShock4GamepadHID/dpad,/XInputControllerWindows/dpad,/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+      objectReference: {fileID: 0}
+    - target: {fileID: 2960502086620502518, guid: b882d4767c50ecb4ea5bb62deeb6d513, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_ActionName
+      value: UI/Submit[/Keyboard/enter,/DualShock4GamepadHID/buttonSouth,/XInputControllerWindows/buttonSouth]
+      objectReference: {fileID: 0}
+    - target: {fileID: 2960502086620502518, guid: b882d4767c50ecb4ea5bb62deeb6d513, type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_ActionName
+      value: UI/Cancel[/Keyboard/escape,/DualShock4GamepadHID/buttonEast,/XInputControllerWindows/buttonEast]
+      objectReference: {fileID: 0}
+    - target: {fileID: 2960502086620502518, guid: b882d4767c50ecb4ea5bb62deeb6d513, type: 3}
+      propertyPath: m_ActionEvents.Array.data[7].m_ActionName
+      value: UI/Point[/Mouse/position,/Pen/position]
+      objectReference: {fileID: 0}
+    - target: {fileID: 2960502086620502518, guid: b882d4767c50ecb4ea5bb62deeb6d513, type: 3}
+      propertyPath: m_ActionEvents.Array.data[8].m_ActionName
+      value: UI/Click[/Mouse/leftButton,/Pen/tip]
+      objectReference: {fileID: 0}
+    - target: {fileID: 2960502086620502518, guid: b882d4767c50ecb4ea5bb62deeb6d513, type: 3}
+      propertyPath: m_ActionEvents.Array.data[9].m_ActionName
+      value: UI/ScrollWheel[/Mouse/scroll]
+      objectReference: {fileID: 0}
+    - target: {fileID: 2960502086620502518, guid: b882d4767c50ecb4ea5bb62deeb6d513, type: 3}
+      propertyPath: m_ActionEvents.Array.data[10].m_ActionName
+      value: UI/MiddleClick[/Mouse/middleButton]
+      objectReference: {fileID: 0}
+    - target: {fileID: 2960502086620502518, guid: b882d4767c50ecb4ea5bb62deeb6d513, type: 3}
+      propertyPath: m_ActionEvents.Array.data[11].m_ActionName
+      value: UI/RightClick[/Mouse/rightButton]
+      objectReference: {fileID: 0}
+    - target: {fileID: 2960502086620502518, guid: b882d4767c50ecb4ea5bb62deeb6d513, type: 3}
+      propertyPath: m_ActionEvents.Array.data[12].m_ActionName
+      value: UI/TrackedDevicePosition
+      objectReference: {fileID: 0}
+    - target: {fileID: 2960502086620502518, guid: b882d4767c50ecb4ea5bb62deeb6d513, type: 3}
+      propertyPath: m_ActionEvents.Array.data[13].m_ActionName
+      value: UI/TrackedDeviceOrientation
+      objectReference: {fileID: 0}
+    - target: {fileID: 2960502086620502518, guid: b882d4767c50ecb4ea5bb62deeb6d513, type: 3}
+      propertyPath: m_ActionEvents.Array.data[14].m_ActionName
+      value: Minigame/TurnWheel[/Keyboard/a,/Keyboard/d]
+      objectReference: {fileID: 0}
+    - target: {fileID: 2960502086620502518, guid: b882d4767c50ecb4ea5bb62deeb6d513, type: 3}
+      propertyPath: m_ActionEvents.Array.data[15].m_ActionName
+      value: Minigame/ControlLock[/Mouse/leftButton]
+      objectReference: {fileID: 0}
+    - target: {fileID: 2960502086620502518, guid: b882d4767c50ecb4ea5bb62deeb6d513, type: 3}
+      propertyPath: m_ActionEvents.Array.data[16].m_ActionName
+      value: Minigame/MousePosition[/Mouse/position]
+      objectReference: {fileID: 0}
+    - target: {fileID: 2960502086620502518, guid: b882d4767c50ecb4ea5bb62deeb6d513, type: 3}
+      propertyPath: m_ActionEvents.Array.data[17].m_ActionName
+      value: Minigame/SwitchToPlayer[/Keyboard/e]
+      objectReference: {fileID: 0}
+    - target: {fileID: 2960502086620502518, guid: b882d4767c50ecb4ea5bb62deeb6d513, type: 3}
+      propertyPath: m_ActionEvents.Array.data[18].m_ActionName
+      value: Minigame/Deselect[/Mouse/rightButton]
       objectReference: {fileID: 0}
     - target: {fileID: 2960502086620502519, guid: b882d4767c50ecb4ea5bb62deeb6d513, type: 3}
       propertyPath: m_RootOrder
@@ -1757,6 +2033,10 @@ PrefabInstance:
     - target: {fileID: 4127096900903929151, guid: b2634bdff4ff8cf499fe7d3544a93dd6, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4127096900903929151, guid: b2634bdff4ff8cf499fe7d3544a93dd6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7180471906645704303, guid: b2634bdff4ff8cf499fe7d3544a93dd6, type: 3}
       propertyPath: m_Constraints

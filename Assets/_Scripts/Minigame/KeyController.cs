@@ -16,15 +16,36 @@ public class KeyController : MonoBehaviour
     [SerializeField]
     private Transform startingPosition; // may differ from difficulty
 
+    // Input System
+    private GameInputActions gameInputActions;
+    private InputAction controlLock;
+    private InputAction deselect;
+    private InputAction mousePosition;
+
+
     public bool initializeStartup = false;
 
-    void Start()
+    void Awake()
     {
+        gameInputActions = InputManager.inputActions;
+       
+    }
+
+    private void Start()
+    {
+        controlLock = gameInputActions.Minigame.ControlLock;
+        controlLock.started += OnControlLock;
+
+        deselect = gameInputActions.Minigame.Deselect;
+        deselect.started += OnDeselect;
+
+        mousePosition = gameInputActions.Minigame.MousePosition;
+        mousePosition.performed += OnMousePosition;
+
         keyToUse = null;
 
         initializeStartup = true;
         GameManager.Instance.Reset += PositionRestart;
-
     }
 
     private void OnEnable()
@@ -32,12 +53,29 @@ public class KeyController : MonoBehaviour
         if (initializeStartup)
         {
             Debug.Log("BindZeDelegate1");
+
+            controlLock = gameInputActions.Minigame.ControlLock;
+            controlLock.started += OnControlLock;
+
+            deselect = gameInputActions.Minigame.Deselect;
+            deselect.started += OnDeselect;
+
+            mousePosition = gameInputActions.Minigame.MousePosition;
+            mousePosition.performed += OnMousePosition;
             GameManager.Instance.Reset += PositionRestart;
         }
     }
 
     private void OnDisable()
     {
+        controlLock = gameInputActions.Minigame.ControlLock;
+        controlLock.started -= OnControlLock;
+
+        deselect = gameInputActions.Minigame.Deselect;
+        deselect.started -= OnDeselect;
+
+        mousePosition = gameInputActions.Minigame.MousePosition;
+        mousePosition.performed -= OnMousePosition;
         GameManager.Instance.Reset -= PositionRestart;
     }
 
@@ -55,7 +93,7 @@ public class KeyController : MonoBehaviour
     }
 
     // mouse click events;
-    public void OnControlLock(InputValue value)
+    public void OnControlLock(InputAction.CallbackContext obj)
     {
         if (GameManager.Instance.inGame)
         {
@@ -75,12 +113,12 @@ public class KeyController : MonoBehaviour
         }
     }
 
-    public void OnMousePosition(InputValue value)
+    public void OnMousePosition(InputAction.CallbackContext obj)
     {
-        mousePos = value.Get<Vector2>();
+        mousePos = obj.ReadValue<Vector2>();
     }
 
-    public void OnDeselect(InputValue value)
+    public void OnDeselect(InputAction.CallbackContext obj)
     {
         PositionRestart();
     }

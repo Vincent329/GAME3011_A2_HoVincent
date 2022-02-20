@@ -5,6 +5,10 @@ using UnityEngine.InputSystem;
 
 public class TurnWheel : MonoBehaviour
 {
+    // Action Map Component
+    private GameInputActions gameInputActions;
+    private InputAction moveWheel;
+    private InputAction switchToPlayer;
     //[SerializeField] private DifficultyEnum difficulty;
 
     [SerializeField] private bool m_bIsMovingLeft;
@@ -22,18 +26,43 @@ public class TurnWheel : MonoBehaviour
         if (initializeStartup)
         {
             Debug.Log("BindZeDelegate2");
+            moveWheel = gameInputActions.Minigame.TurnWheel;
+            moveWheel.performed += OnTurnWheel;
+            moveWheel.canceled += OnTurnWheel;
+
+            switchToPlayer = gameInputActions.Minigame.SwitchToPlayer;
+            switchToPlayer.started += OnSwitchToPlayer;
             GameManager.Instance.Reset += RestartState;
         }
     }
 
     private void OnDisable()
     {
+        moveWheel = gameInputActions.Minigame.TurnWheel;
+        moveWheel.performed -= OnTurnWheel;
+        moveWheel.canceled -= OnTurnWheel;
+
+        switchToPlayer = gameInputActions.Minigame.SwitchToPlayer;
+        switchToPlayer.started -= OnSwitchToPlayer;
+
         GameManager.Instance.Reset -= RestartState;
+    }
+
+    private void Awake()
+    {
+        gameInputActions = InputManager.inputActions;
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        moveWheel = gameInputActions.Minigame.TurnWheel;
+        moveWheel.performed += OnTurnWheel;
+        moveWheel.canceled += OnTurnWheel;
+
+        switchToPlayer = gameInputActions.Minigame.SwitchToPlayer;
+        switchToPlayer.started += OnSwitchToPlayer;
+
         m_bIsMovingLeft = false;
         m_bIsMovingRight = false;
         m_fRotationValue = 0;
@@ -49,11 +78,11 @@ public class TurnWheel : MonoBehaviour
         transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z + (m_fRotationValue * m_fSpeedModifier));
     }
 
-    public void OnTurnWheel(InputValue value)
+    public void OnTurnWheel(InputAction.CallbackContext obj)
     {
         if (GameManager.Instance.inGame)
         {
-            m_fRotationValue = value.Get<float>(); // getting the float value
+            m_fRotationValue = obj.ReadValue<float>(); // getting the float value
             if (m_fRotationValue < 0)
             {
                 m_bIsMovingLeft = true;
@@ -65,8 +94,13 @@ public class TurnWheel : MonoBehaviour
                 m_bIsMovingLeft = false;
                 m_bIsMovingRight = false;
             }
-
         }
+    }
+
+    public void OnSwitchToPlayer(InputAction.CallbackContext context)
+    {
+        Debug.Log("Switch Back To Player");
+        InputManager.ToggleActionMap(gameInputActions.Player);
     }
 
     private void RestartState()

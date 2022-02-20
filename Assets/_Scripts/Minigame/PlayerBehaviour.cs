@@ -22,17 +22,15 @@ public class PlayerBehaviour : MonoBehaviour
     private PlayerInput playerInput;
     private void Awake()
     {
-        gameInputActions = new GameInputActions();
+        gameInputActions = InputManager.inputActions;
         playerInput = GetComponent<PlayerInput>();
     }
 
     private void OnEnable()
     {
-        gameInputActions.Enable();
         if (elementIsActive)
         {
             Debug.Log("Actions goooo");
-
             gameInputActions.Player.Move.performed += OnMove;
             gameInputActions.Player.Move.canceled += OnMove;
             gameInputActions.Player.SwitchToMinigame.started += OnSwitchToMinigame;
@@ -41,7 +39,6 @@ public class PlayerBehaviour : MonoBehaviour
 
     private void OnDisable()
     {
-        gameInputActions.Disable();
         gameInputActions.Player.Move.performed -= OnMove;
         gameInputActions.Player.Move.canceled -= OnMove;
         gameInputActions.Player.SwitchToMinigame.started -= OnSwitchToMinigame;
@@ -86,8 +83,9 @@ public class PlayerBehaviour : MonoBehaviour
     /// <param name="value"></param>
     private void OnSwitchToMinigame(InputAction.CallbackContext obj)
     {
-        Debug.Log("Interacting");
+        
         GameManager.Instance.ToggleCameras(); // will have to change depending on what difficulty
         playerVelocity = Vector3.zero; // zero out the velocity of the player
+        InputManager.ToggleActionMap(gameInputActions.Minigame);
     }
 }
