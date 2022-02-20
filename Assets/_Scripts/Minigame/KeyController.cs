@@ -27,12 +27,12 @@ public class KeyController : MonoBehaviour
 
     void Awake()
     {
-        gameInputActions = InputManager.inputActions;
        
     }
 
     private void Start()
     {
+        gameInputActions = InputManager.inputActions;
         controlLock = gameInputActions.Minigame.ControlLock;
         controlLock.started += OnControlLock;
 

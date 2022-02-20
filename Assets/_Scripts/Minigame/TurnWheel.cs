@@ -50,12 +50,12 @@ public class TurnWheel : MonoBehaviour
 
     private void Awake()
     {
-        gameInputActions = InputManager.inputActions;
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        gameInputActions = InputManager.inputActions;
         moveWheel = gameInputActions.Minigame.TurnWheel;
         moveWheel.performed += OnTurnWheel;
         moveWheel.canceled += OnTurnWheel;

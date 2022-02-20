@@ -22,7 +22,6 @@ public class PlayerBehaviour : MonoBehaviour
     private PlayerInput playerInput;
     private void Awake()
     {
-        gameInputActions = InputManager.inputActions;
         playerInput = GetComponent<PlayerInput>();
     }
 
@@ -48,6 +47,7 @@ public class PlayerBehaviour : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         elementIsActive = true;
+        gameInputActions = InputManager.inputActions;
         gameInputActions.Player.Move.performed += OnMove;
         gameInputActions.Player.Move.canceled += OnMove;
         gameInputActions.Player.SwitchToMinigame.started += OnSwitchToMinigame;
