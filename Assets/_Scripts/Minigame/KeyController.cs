@@ -130,7 +130,6 @@ public class KeyController : MonoBehaviour
     {
         if (keyToUse != null)
         {
-            keyToUse.transform.position = startingPosition.position;
             keyToUse = null;
         }
     }

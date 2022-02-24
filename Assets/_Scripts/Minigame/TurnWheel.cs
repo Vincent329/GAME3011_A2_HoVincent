@@ -9,7 +9,10 @@ public class TurnWheel : MonoBehaviour
     private GameInputActions gameInputActions;
     private InputAction moveWheel;
     private InputAction switchToPlayer;
-    //[SerializeField] private DifficultyEnum difficulty;
+
+    // variables
+    [SerializeField] private Transform spawnPos;
+    [SerializeField] private DifficultyEnum difficulty;
 
     [SerializeField] private bool m_bIsMovingLeft;
     [SerializeField] private bool m_bIsMovingRight;
@@ -118,6 +121,7 @@ public class TurnWheel : MonoBehaviour
             // TO DO: reset functionality
             Debug.Log("Key Touch, Restart");
             GameManager.Instance.RestartSession();
+            collision.gameObject.transform.position = spawnPos.transform.position;
         }
     }
 }

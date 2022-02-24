@@ -390,6 +390,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13acf7e22bac9cf498ff2aa53f0d3ac0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPos: {fileID: 276575195}
+  difficulty: 0
   m_bIsMovingLeft: 0
   m_bIsMovingRight: 0
   m_fSpeedModifier: 0.71
@@ -1174,6 +1176,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13acf7e22bac9cf498ff2aa53f0d3ac0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPos: {fileID: 687794118}
+  difficulty: 0
   m_bIsMovingLeft: 0
   m_bIsMovingRight: 0
   m_fSpeedModifier: 0.71
