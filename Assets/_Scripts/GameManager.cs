@@ -67,10 +67,13 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        skillText.GetComponent<TextMeshProUGUI>().text = "Alter Slider to change skill level";
+
         inGame = false;
         playerCam.enabled = true;
         lockpickCam.enabled = false;
         lockpickingCanvas.SetActive(false);
+        difficultySelectCanvas.SetActive(false);
         winText.SetActive(false);
         FailText.SetActive(false);
     }
@@ -96,6 +99,7 @@ public class GameManager : MonoBehaviour
             lockpickingCanvas.SetActive(false);
         } else if (inGame)
         {
+            // sets the position to be at the difficulty
             lockpickCam.transform.position = positions[(int)difficultySet].transform.position;
             playerCam.enabled = false;
             lockpickCam.enabled = true;
@@ -142,5 +146,27 @@ public class GameManager : MonoBehaviour
     private void EnableLoseText()
     {
         FailText.SetActive(true);
+    }
+
+    public void UpdateSliderSkill(float skillValue)
+    {
+        if (skillValue >= 0.3f && skillValue < 0.5f)
+        {
+            skillText.GetComponent<TextMeshProUGUI>().text = "Inexperienced";
+        } else if (skillValue >= 0.5f && skillValue < 0.75f)
+        {
+            skillText.GetComponent<TextMeshProUGUI>().text = "Normal";
+
+        }
+        else if (skillValue >= 0.75f && skillValue <= 1.0f)
+        {
+            skillText.GetComponent<TextMeshProUGUI>().text = "Master";
+
+        }
+        else
+        {
+            skillText.GetComponent<TextMeshProUGUI>().text = "ERROR";
+
+        }
     }
 }

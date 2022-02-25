@@ -121,12 +121,11 @@ public class TurnWheel : MonoBehaviour
     /// </summary>
     public void KeySizeChange()
     {
-
         Vector3 tempScale = key.transform.localScale;
         Vector3 alteredScale = originalScale * scaleSlider.value;
         
         key.transform.localScale = new Vector3(alteredScale.x, tempScale.y, alteredScale.z);
-
+        GameManager.Instance.UpdateSliderSkill(scaleSlider.value);
         Debug.Log(key.transform.localScale);
     }
 
@@ -143,7 +142,6 @@ public class TurnWheel : MonoBehaviour
 
     private void RestartState()
     {
-        Debug.Log("SHOULD RESET");
         transform.localEulerAngles = initialState.localEulerAngles;
     }
 
