@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<GameObject> positions;
 
     // Delegates
-    public delegate void DifficultySet(DifficultyEnum difficulty);
+    public delegate void DifficultySet();
     public event DifficultySet StartWithDifficulty;
 
     public delegate void WinGame();
@@ -97,6 +97,7 @@ public class GameManager : MonoBehaviour
             playerCam.enabled = true;
             lockpickCam.enabled = false; 
             lockpickingCanvas.SetActive(false);
+            
         } else if (inGame)
         {
             // sets the position to be at the difficulty
@@ -104,7 +105,13 @@ public class GameManager : MonoBehaviour
             playerCam.enabled = false;
             lockpickCam.enabled = true;
             lockpickingCanvas.SetActive(true);
+            difficultySelectCanvas.SetActive(false);
         }
+    }
+
+    public void ActivateDifficultyMenu(bool activate)
+    {
+        difficultySelectCanvas.SetActive(activate);
     }
 
     public void DifficultyChange(DifficultyEnum newDifficulty)
@@ -114,7 +121,7 @@ public class GameManager : MonoBehaviour
 
     public void StartGameAtDifficulty()
     {
-        StartWithDifficulty(difficultySet);
+        StartWithDifficulty();
     }
 
     public void RestartSession()

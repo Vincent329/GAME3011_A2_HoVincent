@@ -14,11 +14,12 @@ public class DifficultySelect : MonoBehaviour
     void Start()
     {
         difficultyButton = GetComponent<Button>();
+        difficultyButton.onClick.AddListener(ActivateGame);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void ActivateGame()
     {
-        
+        GameManager.Instance.DifficultyChange(difficultySet);
+        GameManager.Instance.StartGameAtDifficulty();
     }
 }
