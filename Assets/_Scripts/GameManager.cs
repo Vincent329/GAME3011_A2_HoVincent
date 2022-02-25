@@ -7,7 +7,6 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-
     private static GameManager instance;
 
     public static GameManager Instance
@@ -24,17 +23,23 @@ public class GameManager : MonoBehaviour
 
     [Header("Game Elements")]
     public DifficultyEnum difficultySet;
+
+    [SerializeField] private GameObject difficultySelectCanvas;
     [SerializeField] private GameObject lockpickingCanvas;
-    [SerializeField] private GameObject promptText;
+
+    [SerializeField] private GameObject lockpickingAttemptsText;
     [SerializeField] private GameObject winText;
     [SerializeField] private GameObject FailText;
-
+    [SerializeField] private GameObject Timer;
 
     public int lockpickAttempts;
 
     // Delegates
-    public delegate void DifficultySet(int difficulty);
-    public event DifficultySet Toggle;
+    public delegate void DifficultySet(DifficultyEnum difficulty);
+    public event DifficultySet StartWithDifficulty;
+
+    public delegate void WinGame();
+    public event WinGame Win;
 
     public delegate void ResetGame();
     public event ResetGame Reset;
@@ -59,6 +64,8 @@ public class GameManager : MonoBehaviour
         playerCam.enabled = true;
         lockpickCam.enabled = false;
         lockpickingCanvas.SetActive(false);
+        winText.SetActive(false);
+        FailText.SetActive(false);
     }
 
     // Update is called once per frame
@@ -83,9 +90,33 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void DifficultyChange(DifficultyEnum newDifficulty)
+    {
+        difficultySet = newDifficulty;
+    }
+
+    public void StartGameAtDifficulty()
+    {
+        StartWithDifficulty(difficultySet);
+    }
+
     public void RestartSession()
     {
         Reset();
     }
 
+    public void WinSession()
+    {    
+        Win();
+    }
+
+    private void UpdateTimer()
+    {
+
+    }
+
+    private void EnableWinScreen()
+    {
+
+    }
 }

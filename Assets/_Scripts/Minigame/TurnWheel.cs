@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+/// <summary>
+/// This class effects the turning of the wheel
+/// </summary>
 public class TurnWheel : MonoBehaviour
 {
     // Action Map Component
