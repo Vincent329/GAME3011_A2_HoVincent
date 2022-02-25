@@ -136,7 +136,7 @@ public class KeyController : MonoBehaviour
 
     private RaycastHit CastRay()
     {
-        // MUST USE THE INPUT SYSTEM FROM THE 
+        
         Vector3 screenMousePosFar = new Vector3(mousePos.x, mousePos.y, miniGameCamera.farClipPlane);
         Vector3 screenMousePosNear = new Vector3(mousePos.x, mousePos.y, miniGameCamera.nearClipPlane);
 

@@ -28,6 +28,7 @@ public class TurnWheel : MonoBehaviour
     private Transform initialState;
     float m_fRotationValue;
 
+    private Vector3 originalScale;
     public bool initializeStartup = false;
 
     private void OnEnable()
@@ -79,6 +80,7 @@ public class TurnWheel : MonoBehaviour
 
         scaleSlider.onValueChanged.AddListener(delegate { KeySizeChange(); });
         key = transform.Find("KeyObject").gameObject;
+        originalScale = key.transform.localScale;
 
         m_bIsMovingLeft = false;
         m_bIsMovingRight = false;
@@ -114,16 +116,24 @@ public class TurnWheel : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Alters the scale of the key based on the slider value
+    /// </summary>
     public void KeySizeChange()
     {
+
         Vector3 tempScale = key.transform.localScale;
-        tempScale.x = scaleSlider.value;
-        tempScale.z = scaleSlider.value;
-        key.transform.localScale = tempScale;
+        Vector3 alteredScale = originalScale * scaleSlider.value;
+        
+        key.transform.localScale = new Vector3(alteredScale.x, tempScale.y, alteredScale.z);
 
         Debug.Log(key.transform.localScale);
     }
 
+    /// <summary>
+    /// Switch to a button prompt instead of a mouse click?
+    /// </summary>
+    /// <param name="context"></param>
     public void OnSwitchToPlayer(InputAction.CallbackContext context)
     {
         Debug.Log("Switch Back To Player");

@@ -19,23 +19,27 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private Camera lockpickCam;
 
+    // ACTIVATES ON GAME STATE BEING TOGGLED
     public bool inGame;
 
     [Header("Game Elements")]
     public DifficultyEnum difficultySet;
 
+    [Header("Text Fields")]
     [SerializeField] private GameObject difficultySelectCanvas;
     [SerializeField] private GameObject lockpickingCanvas;
 
     [SerializeField] private GameObject lockpickingAttemptsText;
+    [SerializeField] private GameObject complexityText;
+    [SerializeField] private GameObject skillText;
+    
     [SerializeField] private GameObject winText;
     [SerializeField] private GameObject FailText;
     [SerializeField] private GameObject Timer;
+    public int lockpickAttempts;
 
     [Header("List of Minigame Camera Positions")]
     [SerializeField] private List<GameObject> positions;
-
-    public int lockpickAttempts;
 
     // Delegates
     public delegate void DifficultySet(DifficultyEnum difficulty);
@@ -79,12 +83,6 @@ public class GameManager : MonoBehaviour
     private void OnDisable()
     {
         Win -= EnableWinText;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void ToggleCameras()
