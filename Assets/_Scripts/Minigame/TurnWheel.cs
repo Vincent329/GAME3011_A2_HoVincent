@@ -158,9 +158,17 @@ public class TurnWheel : MonoBehaviour
         if (collision.gameObject.CompareTag("Key"))
         {
             // TO DO: reset functionality
-            Debug.Log("Key Touch, Restart");
-            GameManager.Instance.RestartSession();
-            collision.gameObject.transform.position = spawnPos.transform.position;
+            if (GameManager.Instance.lockpickAttempts > 1)
+            {
+                GameManager.Instance.RestartSession();
+                GameManager.Instance.UpdateLockpickingAttempts();
+                collision.gameObject.transform.position = spawnPos.transform.position;
+            } else
+            {
+                // Lose the game
+                GameManager.Instance.LoseSession();
+                key.SetActive(false);
+            }
         }
     }
 }

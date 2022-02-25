@@ -139,6 +139,11 @@ public class GameManager : MonoBehaviour
         Win();
     }
 
+    public void LoseSession()
+    {
+        FailText.SetActive(true);
+    }
+
     public void UpdateLockpickingAttempts()
     {
         lockpickAttempts--;
