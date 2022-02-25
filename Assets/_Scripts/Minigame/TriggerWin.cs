@@ -9,6 +9,8 @@ public class TriggerWin : MonoBehaviour
         if (other.gameObject.CompareTag("Key"))
         {
             Debug.Log("Trigger Win");
+            other.gameObject.SetActive(false);
+            GameManager.Instance.WinSession();
         }
     }
 }

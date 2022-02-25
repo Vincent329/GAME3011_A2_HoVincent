@@ -32,6 +32,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject FailText;
     [SerializeField] private GameObject Timer;
 
+    [Header("List of Minigame Camera Positions")]
+    [SerializeField] private List<GameObject> positions;
+
     public int lockpickAttempts;
 
     // Delegates
@@ -68,6 +71,16 @@ public class GameManager : MonoBehaviour
         FailText.SetActive(false);
     }
 
+    private void OnEnable()
+    {
+        Win += EnableWinText;
+    }
+
+    private void OnDisable()
+    {
+        Win -= EnableWinText;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -84,6 +97,7 @@ public class GameManager : MonoBehaviour
             lockpickingCanvas.SetActive(false);
         } else if (inGame)
         {
+            lockpickCam.transform.position = positions[(int)difficultySet].transform.position;
             playerCam.enabled = false;
             lockpickCam.enabled = true;
             lockpickingCanvas.SetActive(true);
@@ -110,13 +124,24 @@ public class GameManager : MonoBehaviour
         Win();
     }
 
+    public void UpdateLockpickingAttempts()
+    {
+        lockpickAttempts--;
+        // update text here
+    }
+
     private void UpdateTimer()
     {
 
     }
 
-    private void EnableWinScreen()
+    private void EnableWinText()
     {
+        winText.SetActive(true);
+    }
 
+    private void EnableLoseText()
+    {
+        FailText.SetActive(true);
     }
 }
