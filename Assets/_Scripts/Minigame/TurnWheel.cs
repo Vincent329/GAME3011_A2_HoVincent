@@ -45,7 +45,8 @@ public class TurnWheel : MonoBehaviour
 
             switchToPlayer = gameInputActions.Minigame.SwitchToPlayer;
             switchToPlayer.started += OnSwitchToPlayer;
-            GameManager.Instance.Reset += RestartState;
+            GameManager.Instance.StartWithDifficulty += Initialize;
+
         }
     }
 
@@ -59,8 +60,8 @@ public class TurnWheel : MonoBehaviour
 
         switchToPlayer = gameInputActions.Minigame.SwitchToPlayer;
         switchToPlayer.started -= OnSwitchToPlayer;
+        GameManager.Instance.StartWithDifficulty -= Initialize;
 
-        GameManager.Instance.Reset -= RestartState;
     }
 
     private void Awake()
@@ -81,7 +82,6 @@ public class TurnWheel : MonoBehaviour
         scaleSlider.onValueChanged.AddListener(delegate { KeySizeChange(); });
         key = transform.Find("KeyObject").gameObject;
         initializeStartup = true;
-        GameManager.Instance.Reset += RestartState;
         GameManager.Instance.StartWithDifficulty += Initialize;
 
         Initialize();
@@ -146,10 +146,6 @@ public class TurnWheel : MonoBehaviour
         Debug.Log("Switch Back To Player");
         GameManager.Instance.ToggleCameras(); // will have to change depending on what difficulty
         InputManager.ToggleActionMap(gameInputActions.Player);
-    }
-
-    private void RestartState()
-    {
     }
 
 

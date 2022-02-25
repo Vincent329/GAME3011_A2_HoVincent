@@ -8,7 +8,6 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
-
     public static GameManager Instance
     {
         get => instance;
@@ -68,7 +67,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         skillText.GetComponent<TextMeshProUGUI>().text = "Alter Slider to change skill level";
-
+        lockpickingAttemptsText.GetComponent<TextMeshProUGUI>().text = "Lockpicks Left: " + lockpickAttempts;
         inGame = false;
         playerCam.enabled = true;
         lockpickCam.enabled = false;
@@ -124,6 +123,8 @@ public class GameManager : MonoBehaviour
     public void StartGameAtDifficulty()
     {
         lockpickAttempts = 3;
+        lockpickingAttemptsText.GetComponent<TextMeshProUGUI>().text = "Lockpicks Left: " + lockpickAttempts;
+
         winText.SetActive(false);
         FailText.SetActive(false);
         StartWithDifficulty();
@@ -141,6 +142,10 @@ public class GameManager : MonoBehaviour
 
     public void LoseSession()
     {
+        lockpickAttempts = 0;
+        // update text here
+        lockpickingAttemptsText.GetComponent<TextMeshProUGUI>().text = "Lockpicks Left: " + lockpickAttempts;
+
         FailText.SetActive(true);
     }
 
@@ -148,6 +153,7 @@ public class GameManager : MonoBehaviour
     {
         lockpickAttempts--;
         // update text here
+        lockpickingAttemptsText.GetComponent<TextMeshProUGUI>().text = "Lockpicks Left: " + lockpickAttempts;
     }
 
     private void UpdateTimer()
