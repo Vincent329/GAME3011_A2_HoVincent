@@ -106,6 +106,8 @@ public class GameManager : MonoBehaviour
             lockpickCam.enabled = true;
             lockpickingCanvas.SetActive(true);
             difficultySelectCanvas.SetActive(false);
+
+            complexityText.GetComponent<TextMeshProUGUI>().text = "Difficulty: " + difficultySet.ToString();
         }
     }
 
@@ -121,6 +123,9 @@ public class GameManager : MonoBehaviour
 
     public void StartGameAtDifficulty()
     {
+        lockpickAttempts = 3;
+        winText.SetActive(false);
+        FailText.SetActive(false);
         StartWithDifficulty();
     }
 

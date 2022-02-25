@@ -80,16 +80,24 @@ public class TurnWheel : MonoBehaviour
 
         scaleSlider.onValueChanged.AddListener(delegate { KeySizeChange(); });
         key = transform.Find("KeyObject").gameObject;
+        initializeStartup = true;
+        GameManager.Instance.Reset += RestartState;
+        GameManager.Instance.StartWithDifficulty += Initialize;
+
+        Initialize();
+
+    }
+
+    private void Initialize()
+    {
+        key.gameObject.SetActive(true);
+        key.transform.position = spawnPos.position;
         originalScale = key.transform.localScale;
 
         m_bIsMovingLeft = false;
         m_bIsMovingRight = false;
         m_fRotationValue = 0;
         initialState = this.transform;
-
-        initializeStartup = true;
-        GameManager.Instance.Reset += RestartState;
-
     }
 
     private void Update()
@@ -142,7 +150,6 @@ public class TurnWheel : MonoBehaviour
 
     private void RestartState()
     {
-        transform.localEulerAngles = initialState.localEulerAngles;
     }
 
 

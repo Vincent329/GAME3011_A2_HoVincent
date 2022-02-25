@@ -46,6 +46,8 @@ public class KeyController : MonoBehaviour
 
         initializeStartup = true;
         GameManager.Instance.Reset += PositionRestart;
+        GameManager.Instance.StartWithDifficulty += PositionRestart;
+
     }
 
     private void OnEnable()
@@ -63,6 +65,7 @@ public class KeyController : MonoBehaviour
             mousePosition = gameInputActions.Minigame.MousePosition;
             mousePosition.performed += OnMousePosition;
             GameManager.Instance.Reset += PositionRestart;
+            GameManager.Instance.StartWithDifficulty += PositionRestart;
         }
     }
 
@@ -77,6 +80,8 @@ public class KeyController : MonoBehaviour
         mousePosition = gameInputActions.Minigame.MousePosition;
         mousePosition.performed -= OnMousePosition;
         GameManager.Instance.Reset -= PositionRestart;
+        GameManager.Instance.StartWithDifficulty -= PositionRestart;
+
     }
 
     // Update is called once per frame
