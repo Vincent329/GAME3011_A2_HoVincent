@@ -47,6 +47,8 @@ public class KeyController : MonoBehaviour
         initializeStartup = true;
         GameManager.Instance.Reset += PositionRestart;
         GameManager.Instance.StartWithDifficulty += PositionRestart;
+        GameManager.Instance.Lose += PositionRestart;
+
 
     }
 
@@ -66,6 +68,8 @@ public class KeyController : MonoBehaviour
             mousePosition.performed += OnMousePosition;
             GameManager.Instance.Reset += PositionRestart;
             GameManager.Instance.StartWithDifficulty += PositionRestart;
+            GameManager.Instance.Lose += PositionRestart;
+
         }
     }
 
@@ -81,6 +85,8 @@ public class KeyController : MonoBehaviour
         mousePosition.performed -= OnMousePosition;
         GameManager.Instance.Reset -= PositionRestart;
         GameManager.Instance.StartWithDifficulty -= PositionRestart;
+        GameManager.Instance.Lose -= PositionRestart;
+
 
     }
 

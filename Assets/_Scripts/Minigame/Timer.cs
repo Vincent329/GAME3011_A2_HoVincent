@@ -7,22 +7,52 @@ public class Timer : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI textDisplay;
     [SerializeField] float gameTime;
-    private float timer;
+    public float timer;
     private bool stopTimer;
+    [SerializeField]
+    private bool init = false;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        stopTimer = false;
-        timer = gameTime;
+        textDisplay = GetComponent<TextMeshProUGUI>();
     }
 
+    private void Start()
+    {
+        stopTimer = false;
+        timer = GameManager.Instance.initialStartTimer;
+
+        init = true;
+        GameManager.Instance.Win += StopTimer;
+    }
+    private void OnEnable()
+    {
+        if (init)
+        {
+            stopTimer = false;
+            timer = GameManager.Instance.initialStartTimer;
+            GameManager.Instance.Win += StopTimer;
+
+        }
+    }
+
+    private void OnDisable()
+    {
+        GameManager.Instance.Win -= StopTimer;
+
+    }
     // Update is called once per frame
     void Update()
     {
-        
+
+        UpdateTimer();
     }
 
+    private void StopTimer()
+    {
+        stopTimer = true;
+    }
 
     private void UpdateTimer()
     {
@@ -34,6 +64,7 @@ public class Timer : MonoBehaviour
         {
             stopTimer = true;
             timer = 0;
+            GameManager.Instance.LoseSession();
         }
         if (!stopTimer)
         {

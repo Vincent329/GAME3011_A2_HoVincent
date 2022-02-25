@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
     
     [SerializeField] private GameObject winText;
     [SerializeField] private GameObject FailText;
-    [SerializeField] private GameObject Timer;
+    public float initialStartTimer;
     public int lockpickAttempts;
 
     [Header("List of Minigame Camera Positions")]
@@ -45,7 +45,10 @@ public class GameManager : MonoBehaviour
     public event DifficultySet StartWithDifficulty;
 
     public delegate void WinGame();
-    public event WinGame Win;
+    public event WinGame Win; 
+    
+    public delegate void LoseGame();
+    public event WinGame Lose;
 
     public delegate void ResetGame();
     public event ResetGame Reset;
@@ -118,6 +121,12 @@ public class GameManager : MonoBehaviour
     public void DifficultyChange(DifficultyEnum newDifficulty)
     {
         difficultySet = newDifficulty;
+        if (difficultySet == DifficultyEnum.EASY)
+            initialStartTimer = 20;
+        if (difficultySet == DifficultyEnum.MEDIUM)
+            initialStartTimer = 30;
+        if (difficultySet == DifficultyEnum.HARD)
+            initialStartTimer = 40;
     }
 
     public void StartGameAtDifficulty()
@@ -147,6 +156,7 @@ public class GameManager : MonoBehaviour
         lockpickingAttemptsText.GetComponent<TextMeshProUGUI>().text = "Lockpicks Left: " + lockpickAttempts;
 
         FailText.SetActive(true);
+        Lose();
     }
 
     public void UpdateLockpickingAttempts()

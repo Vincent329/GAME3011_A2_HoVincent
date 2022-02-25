@@ -46,6 +46,8 @@ public class TurnWheel : MonoBehaviour
             switchToPlayer = gameInputActions.Minigame.SwitchToPlayer;
             switchToPlayer.started += OnSwitchToPlayer;
             GameManager.Instance.StartWithDifficulty += Initialize;
+            GameManager.Instance.Lose += LoseGame;
+
 
         }
     }
@@ -61,6 +63,8 @@ public class TurnWheel : MonoBehaviour
         switchToPlayer = gameInputActions.Minigame.SwitchToPlayer;
         switchToPlayer.started -= OnSwitchToPlayer;
         GameManager.Instance.StartWithDifficulty -= Initialize;
+        GameManager.Instance.Lose -= LoseGame;
+
 
     }
 
@@ -83,6 +87,7 @@ public class TurnWheel : MonoBehaviour
         key = transform.Find("KeyObject").gameObject;
         initializeStartup = true;
         GameManager.Instance.StartWithDifficulty += Initialize;
+        GameManager.Instance.Lose += LoseGame;
 
         Initialize();
 
@@ -148,6 +153,10 @@ public class TurnWheel : MonoBehaviour
         InputManager.ToggleActionMap(gameInputActions.Player);
     }
 
+    private void LoseGame()
+    {
+        key.SetActive(false);
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
