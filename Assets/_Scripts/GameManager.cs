@@ -86,6 +86,7 @@ public class GameManager : MonoBehaviour
     {
         
     }
+
     public void ToggleCameras()
     {
         // current test, check if the minigame camera is working

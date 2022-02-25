@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.InputSystem;
 
 /// <summary>
@@ -16,6 +17,8 @@ public class TurnWheel : MonoBehaviour
     // variables
     [SerializeField] private Transform spawnPos;
     [SerializeField] private DifficultyEnum difficulty;
+    [SerializeField] GameObject key;
+    [SerializeField] Slider scaleSlider;
 
     [SerializeField] private bool m_bIsMovingLeft;
     [SerializeField] private bool m_bIsMovingRight;
@@ -32,6 +35,9 @@ public class TurnWheel : MonoBehaviour
         if (initializeStartup)
         {
             Debug.Log("BindZeDelegate2");
+
+            scaleSlider.onValueChanged.AddListener(delegate { KeySizeChange(); });
+
             moveWheel = gameInputActions.Minigame.TurnWheel;
             moveWheel.performed += OnTurnWheel;
             moveWheel.canceled += OnTurnWheel;
@@ -44,6 +50,8 @@ public class TurnWheel : MonoBehaviour
 
     private void OnDisable()
     {
+        scaleSlider.onValueChanged.RemoveAllListeners();
+
         moveWheel = gameInputActions.Minigame.TurnWheel;
         moveWheel.performed -= OnTurnWheel;
         moveWheel.canceled -= OnTurnWheel;
@@ -68,6 +76,9 @@ public class TurnWheel : MonoBehaviour
 
         switchToPlayer = gameInputActions.Minigame.SwitchToPlayer;
         switchToPlayer.started += OnSwitchToPlayer;
+
+        scaleSlider.onValueChanged.AddListener(delegate { KeySizeChange(); });
+        key = transform.Find("KeyObject").gameObject;
 
         m_bIsMovingLeft = false;
         m_bIsMovingRight = false;
@@ -101,6 +112,16 @@ public class TurnWheel : MonoBehaviour
                 m_bIsMovingRight = false;
             }
         }
+    }
+
+    public void KeySizeChange()
+    {
+        Vector3 tempScale = key.transform.localScale;
+        tempScale.x = scaleSlider.value;
+        tempScale.z = scaleSlider.value;
+        key.transform.localScale = tempScale;
+
+        Debug.Log(key.transform.localScale);
     }
 
     public void OnSwitchToPlayer(InputAction.CallbackContext context)
