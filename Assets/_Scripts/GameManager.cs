@@ -183,15 +183,15 @@ public class GameManager : MonoBehaviour
 
     public void UpdateSliderSkill(float skillValue)
     {
-        if (skillValue >= 0.3f && skillValue < 0.5f)
+        if (skillValue >= 0.4f && skillValue < 0.7f)
         {
             skillText.GetComponent<TextMeshProUGUI>().text = "Inexperienced";
-        } else if (skillValue >= 0.5f && skillValue < 0.75f)
+        } else if (skillValue >= 0.7f && skillValue < 1.05f)
         {
             skillText.GetComponent<TextMeshProUGUI>().text = "Normal";
 
         }
-        else if (skillValue >= 0.75f && skillValue <= 1.0f)
+        else if (skillValue >= 1.05f && skillValue <= 1.4f)
         {
             skillText.GetComponent<TextMeshProUGUI>().text = "Master";
 

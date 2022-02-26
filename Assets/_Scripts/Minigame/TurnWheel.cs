@@ -99,6 +99,8 @@ public class TurnWheel : MonoBehaviour
         key.transform.position = spawnPos.position;
         originalScale = key.transform.localScale;
 
+        KeySizeChange();
+
         m_bIsMovingLeft = false;
         m_bIsMovingRight = false;
         m_fRotationValue = 0;

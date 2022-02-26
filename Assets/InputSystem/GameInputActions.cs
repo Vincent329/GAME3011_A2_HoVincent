@@ -53,15 +53,6 @@ public partial class @GameInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""SwitchToMinigame"",
-                    ""type"": ""Value"",
-                    ""id"": ""627ca944-a89f-41c3-b16d-a6e4442a3480"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -282,17 +273,6 @@ public partial class @GameInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""XR"",
                     ""action"": ""Fire"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""c1c21198-4852-45b4-9167-01dc87920e43"",
-                    ""path"": ""<Keyboard>/e"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""SwitchToMinigame"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1013,7 +993,6 @@ public partial class @GameInputActions : IInputActionCollection2, IDisposable
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
-        m_Player_SwitchToMinigame = m_Player.FindAction("SwitchToMinigame", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1095,7 +1074,6 @@ public partial class @GameInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_Fire;
-    private readonly InputAction m_Player_SwitchToMinigame;
     public struct PlayerActions
     {
         private @GameInputActions m_Wrapper;
@@ -1103,7 +1081,6 @@ public partial class @GameInputActions : IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputAction @Fire => m_Wrapper.m_Player_Fire;
-        public InputAction @SwitchToMinigame => m_Wrapper.m_Player_SwitchToMinigame;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1122,9 +1099,6 @@ public partial class @GameInputActions : IInputActionCollection2, IDisposable
                 @Fire.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
                 @Fire.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
                 @Fire.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
-                @SwitchToMinigame.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwitchToMinigame;
-                @SwitchToMinigame.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwitchToMinigame;
-                @SwitchToMinigame.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwitchToMinigame;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -1138,9 +1112,6 @@ public partial class @GameInputActions : IInputActionCollection2, IDisposable
                 @Fire.started += instance.OnFire;
                 @Fire.performed += instance.OnFire;
                 @Fire.canceled += instance.OnFire;
-                @SwitchToMinigame.started += instance.OnSwitchToMinigame;
-                @SwitchToMinigame.performed += instance.OnSwitchToMinigame;
-                @SwitchToMinigame.canceled += instance.OnSwitchToMinigame;
             }
         }
     }
@@ -1365,7 +1336,6 @@ public partial class @GameInputActions : IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
         void OnFire(InputAction.CallbackContext context);
-        void OnSwitchToMinigame(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

@@ -32,7 +32,6 @@ public class PlayerBehaviour : MonoBehaviour
             Debug.Log("Actions goooo");
             gameInputActions.Player.Move.performed += OnMove;
             gameInputActions.Player.Move.canceled += OnMove;
-            gameInputActions.Player.SwitchToMinigame.started += OnSwitchToMinigame;
         }
     }
 
@@ -40,7 +39,6 @@ public class PlayerBehaviour : MonoBehaviour
     {
         gameInputActions.Player.Move.performed -= OnMove;
         gameInputActions.Player.Move.canceled -= OnMove;
-        gameInputActions.Player.SwitchToMinigame.started -= OnSwitchToMinigame;
 
         GameManager.Instance.StartWithDifficulty -= SwitchToMinigame;
 
@@ -53,7 +51,6 @@ public class PlayerBehaviour : MonoBehaviour
         gameInputActions = InputManager.inputActions;
         gameInputActions.Player.Move.performed += OnMove;
         gameInputActions.Player.Move.canceled += OnMove;
-        gameInputActions.Player.SwitchToMinigame.started += OnSwitchToMinigame;
 
         GameManager.Instance.StartWithDifficulty += SwitchToMinigame;
     }
@@ -91,16 +88,5 @@ public class PlayerBehaviour : MonoBehaviour
             InputManager.ToggleActionMap(gameInputActions.Minigame);
         }
     }
-
-    /// <summary>
-    /// Pressing the interact button
-    /// </summary>
-    /// <param name="value"></param>
-    private void OnSwitchToMinigame(InputAction.CallbackContext obj)
-    {
-        SwitchToMinigame();
-
-    }
-
 
 }

@@ -999,9 +999,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1771125213}
   m_Direction: 0
   m_MinValue: 0.4
-  m_MaxValue: 1
+  m_MaxValue: 1.2
   m_WholeNumbers: 0
-  m_Value: 0.64
+  m_Value: 0.904
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2248,7 +2248,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 841084711}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -2758,10 +2758,6 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 2a055e6c-2ca1-46c6-9505-5d8e85f7d424
     m_ActionName: Player/Fire[/DualShock4GamepadHID/rightTrigger,/XInputControllerWindows/rightTrigger,/Mouse/leftButton]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 627ca944-a89f-41c3-b16d-a6e4442a3480
-    m_ActionName: Player/SwitchToMinigame[/Keyboard/e]
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 33e838f8-40f2-4daf-bf96-a47bedbd0846
@@ -5648,7 +5644,7 @@ GameObject:
   - component: {fileID: 2005986269}
   - component: {fileID: 2005986268}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: World Instructions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
